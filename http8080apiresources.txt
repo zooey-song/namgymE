@@ -1,0 +1,10 @@
+http:8080/api/resources
+{
+pageNp : 1,
+numOfRows:100
+}
+
+
+상세공유자원정보
+detailed_information
+http://www.eshare.go.kr/eshare-openapi/rsrc/detail/{apikey}
