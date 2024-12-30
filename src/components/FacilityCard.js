@@ -11,7 +11,7 @@ const FacilityCard = ({ facility }) => {
         <p className="rsrcNm">{rsrcNm}</p>
         <p className="description">{addr}</p>
         <p className="detailed-address">{daddr}</p>
-        <p className="fee">이용 요금: {fee}</p>
+        <p className="fee">이용 요금:{fee}</p>
       </div>
       <div className="card-footer">
         <button className="details-button">상세보기</button>

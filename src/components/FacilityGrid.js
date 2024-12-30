@@ -10,25 +10,26 @@ const FacilityGrid = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.post('https://www.eshare.go.kr/eshare-openapi/rsrc/list/010500/7cc4668b0bae3d6b940801a6eca5e616', {
-          pageNo: currentPage,
-          numOfRows: itemsPerPage
-        });
-        if (response.data && response.data.data) {
-          setFacilities(response.data.data);
-        } else {
-          throw new Error('Data is not in expected format');
-        }
-      } catch (error) {
-        setError(error.message);
+  // Define fetchData outside useEffect so it can be called from handlePageChange
+  const fetchData = async () => {
+    try {
+      const response = await axios.post('https://www.eshare.go.kr/eshare-openapi/rsrc/list/010500/7cc4668b0bae3d6b940801a6eca5e616', {
+        pageNo: currentPage,
+        numOfRows: itemsPerPage
+      });
+      if (response.data && response.data.data) {
+        setFacilities(response.data.data);
+      } else {
+        throw new Error('Data is not in expected format');
       }
-    };
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
-    fetchData();
-  }, [currentPage]);
+  useEffect(() => {
+    fetchData();  // Call fetchData inside useEffect
+  }, [currentPage]);  // Dependency array to re-fetch data when currentPage changes
 
   const totalPages = Math.ceil(facilities.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -36,6 +37,7 @@ const FacilityGrid = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    fetchData();  // Fetch data after updating the current page
   };
 
   return (
