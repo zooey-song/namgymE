@@ -1,0 +1,63 @@
+/* Footer 스타일 */
+.footer {
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 80px; /* 고정된 높이 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20%;
+  border-top: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.footer-info {
+  font-size: 12px;
+}
+
+/* 드롭다운 컨테이너 */
+.family-site {
+  position: relative;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: -60px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 150px;
+  z-index: 2000;
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  color: #007bff;
+}
+
+/* 드롭다운 아이콘 */
+.dropdown-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* 호버 상태에서 드롭다운 표시 */
+.family-site:hover .dropdown-menu {
+  display: block;
+}
