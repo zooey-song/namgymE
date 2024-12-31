@@ -37,7 +37,6 @@ const FacilityGrid = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    //fetchData();  // Fetch data after updating the current page
   };
 
   return (
