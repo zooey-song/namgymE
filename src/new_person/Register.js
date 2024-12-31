@@ -1,26 +1,42 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // axios를 import
 import './Register.css';
 
 const Register = () => {
-  const [email, setEmail] = useState('');
+  const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [nickname, setNickname] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       setSuccess(false);
-    } else if (password.length < 6) {
-      setError('Password must be at least 6 characters long.');
-      setSuccess(false);
     } else {
-      setError('');
-      setSuccess(true);
-      console.log('User Registered:', { email, password });
-      // 여기에 회원가입 처리 로직 추가 가능
+      try {
+        // 여기에서 POST 요청을 보냅니다.
+        const response = await axios.post('http://10.125.121.118:8080/join', {
+          userid,
+          password,
+          nickname
+        });
+
+        if (response.data.success) {
+          setSuccess(true);
+          setError('');
+          console.log('Registration Successful:', response.data);
+          // 추가적인 로직 (예: 로그인 페이지로 리디렉션)
+        } else {
+          setError(response.data.message || 'An error occurred. Please try again.');
+          setSuccess(false);
+        }
+      } catch (err) {
+        setError(err.response?.data?.message || 'An error occurred. Please try again.');
+        setSuccess(false);
+      }
     }
   };
 
@@ -31,9 +47,19 @@ const Register = () => {
         <div className="register-input-group">
           <label>아이디</label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="userid"
+            value={userid}
+            onChange={(e) => setUserId(e.target.value)}
+            className="register-input"
+            required
+          />
+        </div>
+        <div className="register-input-group">
+          <label>닉네임</label>
+          <input
+            type="nickname"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
             className="register-input"
             required
           />
