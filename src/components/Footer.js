@@ -10,12 +10,12 @@ const Footer = () => {
         <a href="mailto:plato@pusan.ac.kr">plato@pusan.ac.kr</a>
         </div>
       <div class="footer-dropdown">
-        <button><img src="arrow.png" alt="Dropdown Icon" class="dropdown-icon"/></button>
+        {/* <button><img src="arrow.png" alt="Dropdown Icon" class="dropdown-icon"/></button>
         <ul class="dropdown-menu">
           <li><a href="#item1">Item 1</a></li>
           <li><a href="#item2">Item 2</a></li>
           <li><a href="#item3">Item 3</a></li>
-        </ul>
+        </ul> */}
     </div>
     </footer>
   );
