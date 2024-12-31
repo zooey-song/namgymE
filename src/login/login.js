@@ -24,6 +24,7 @@ const Login = () => {
         localStorage.setItem('Authorization', token); // 토큰을 localStorage에 저장
         setError('');
         navigate('/'); // 홈으로 이동
+        window.location.reload();
       } else {
         setError('로그인에 실패했습니다. 다시 시도하세요.');
       }
