@@ -27,9 +27,9 @@ const Register = () => {
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
-        <h2 className="register-title">Sign Up</h2>
+        <h2 className="register-title">회원가입</h2>
         <div className="register-input-group">
-          <label>Email:</label>
+          <label>아이디</label>
           <input
             type="email"
             value={email}
@@ -39,7 +39,7 @@ const Register = () => {
           />
         </div>
         <div className="register-input-group">
-          <label>Password:</label>
+          <label>비밀번호</label>
           <input
             type="password"
             value={password}
@@ -49,7 +49,7 @@ const Register = () => {
           />
         </div>
         <div className="register-input-group">
-          <label>Confirm Password:</label>
+          <label>확인비밀번호</label>
           <input
             type="password"
             value={confirmPassword}
@@ -61,7 +61,7 @@ const Register = () => {
         {error && <p className="register-error">{error}</p>}
         {success && <p className="register-success">Registration Successful!</p>}
         <button type="submit" className="register-button">
-          Register
+          회원가입
         </button>
       </form>
     </div>

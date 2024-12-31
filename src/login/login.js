@@ -23,9 +23,9 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="login-title">Login</h2>
+        <h2 className="login-title">로그인</h2>
         <div className="login-input-group">
-          <label>이름</label>
+          <label>아이디</label>
           <input
             type="text"
             value={email}
@@ -46,7 +46,7 @@ const Login = () => {
         </div>
         {error && <p className="login-error">{error}</p>}
         <button type="submit" className="login-button">
-          Login
+          로그인
         </button>
       </form>
     </div>

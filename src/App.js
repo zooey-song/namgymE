@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import MainContent from "./home/MainContent";
 import LoginForm from "./login/login";
 import Register from "./new_person/Register";
-
+import Detail from "./gym/FacilityDetail";
 
 const Home = () => <MainContent />; // 홈 페이지 컴포넌트
 
@@ -20,7 +20,7 @@ const App = () => {
 {/*          <Route path="/home" element={<MainContent />} /> */}
           <Route path="/Login" element={<LoginForm />} />
           <Route path="/Register" element={<Register />} />
-          
+          <Route path="/Detail"element={<Detail />} />
           {/* 다른 경로는 필요에 따라 추가 */}
         </Routes>
       </div>
