@@ -14,8 +14,8 @@ const FacilityDetail = () => {
           'https://www.eshare.go.kr/eshare-openapi/rsrc/detail/7cc4668b0bae3d6b940801a6eca5e616',
           {
             pageNo: 1,
-            numOfRows: 1, // 필요한 데이터 수
-            ctpvCd: 21,
+            numOfRows: 1 // 필요한 데이터 수
+            //,ctpvCd: 21,
           }
         );
 
