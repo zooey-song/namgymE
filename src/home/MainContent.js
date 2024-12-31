@@ -2,7 +2,7 @@ import React from "react";
 import "./MainContent.css";
 import SearchForm from "../components/SearchForm";
 
-import FacilityGrid from "../components/FacilityGrid"
+import FacilityGrid from "../gym/FacilityGrid"
 const MainContent = () => {
   return (
     <div>

@@ -31,13 +31,13 @@ const FacilityGrid = () => {
     fetchData();  // Call fetchData inside useEffect
   }, [currentPage]);  // Dependency array to re-fetch data when currentPage changes
 
-  const totalPages = Math.ceil(facilities.length / itemsPerPage);
+  const totalPages = Math.ceil(60 / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentFacilities = facilities.slice(startIndex, startIndex + itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    fetchData();  // Fetch data after updating the current page
+    //fetchData();  // Fetch data after updating the current page
   };
 
   return (
