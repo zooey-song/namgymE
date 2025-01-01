@@ -23,7 +23,10 @@ const Header = () => {
       <div className="top-nav">
         <div className="nav">
           {isLoggedIn ? (
-            <a href="/logout" className="logout" onClick={handleLogout}>로그아웃</a>
+            <>
+              <a href="/logout" className="logout" onClick={handleLogout}>로그아웃</a>
+              <a href="/favorit" className="favorit">즐겨찾기</a>
+            </>
           ) : (
             <>
               <a href="/login" className="login">로그인</a>
