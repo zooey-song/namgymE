@@ -4,7 +4,7 @@ import axios from 'axios'; // axios를 import
 import './login.css';
 
 const Login = () => {
-  const [userid, setUserid] = useState('');
+  const [username, setUserid] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ const Login = () => {
     e.preventDefault(); // 기본 폼 동작 방지
 
     try {
-      const response = await axios.post('http://10.125.121.118:8080/login', {
-        userid, // 요청 바디에 userid 추가
+      const response = await axios.post('http://10.125.121.224:8080/login', {
+        username, // 요청 바디에 userid 추가
         password, // 요청 바디에 password 추가
       });
 
@@ -46,7 +46,7 @@ const Login = () => {
           <label>아이디</label>
           <input
             type="text"
-            value={userid}
+            value={username}
             onChange={(e) => setUserid(e.target.value)}
             className="login-input"
             placeholder="아이디를 입력하세요"
