@@ -3,12 +3,12 @@ import axios from 'axios';
 import FacilityCard from './FacilityCard';
 import './FacilityGrid.css';
 
-const itemsPerPage = 100;
+const itemsPerPage = 12;
 
 const FacilityGrid = () => {
   const [facilities, setFacilities] = useState([]);
   const [error, setError] = useState(null);
-  const [pageCount, setPageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(10); // 총 120개 데이터와 12 페이지 고정
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchData = async (selectedPage) => {
@@ -19,7 +19,6 @@ const FacilityGrid = () => {
       });
       if (response.data && response.data.data) {
         setFacilities(response.data.data);
-        setPageCount(Math.ceil(response.data.totalCount / itemsPerPage));
       } else {
         throw new Error('Data is not in expected format');
       }
@@ -30,15 +29,34 @@ const FacilityGrid = () => {
 
   useEffect(() => {
     fetchData(currentPage);
-    console.log(facilities);
   }, [currentPage]);
 
+  const handlePageClick = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= pageCount; i++) {
+      pageNumbers.push(
+        <button key={i} onClick={() => handlePageClick(i)} disabled={currentPage === i}>
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
   return (
-    <div className="facility-grid">
-      {facilities.map(facility => (
-        <FacilityCard key={facility.id} {...facility} />
-      ))}
-      {error && <div>{error}</div>}
+    <div>
+      <div className="facility-grid">
+        {facilities.map(facility => (
+          <FacilityCard key={facility.id} {...facility} />
+        ))}
+        {error && <div>{error}</div>}
+      </div>
+      <div className="pagination">
+        {renderPageNumbers()}
+      </div>
     </div>
   );
 };
