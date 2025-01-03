@@ -7,8 +7,6 @@ import LoginForm from "./login/login";
 import Register from "./new_person/Register";
 import Detail from "./gym/FacilityDetail";
 
-const Home = () => <MainContent />; // 홈 페이지 컴포넌트
-
 const App = () => {
   return (
     <Router>
@@ -16,7 +14,7 @@ const App = () => {
         <Header />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainContent />} />
 {/*          <Route path="/home" element={<MainContent />} /> */}
           <Route path="/Login" element={<LoginForm />} />
           <Route path="/Register" element={<Register />} />
