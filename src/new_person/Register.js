@@ -18,7 +18,7 @@ const Register = () => {
     } else {
       try {
         // 여기에서 POST 요청을 보냅니다.
-        const response = await axios.post('http://10.125.121.118:8080/join', {
+        const response = await axios.post('http://10.125.121.118:8080/api/join', {
           userid,
           password,
           nickname
