@@ -1,5 +1,7 @@
 // src/Board.js
+// src/Board.js
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Board.css';
 
 const Board = () => {
@@ -9,11 +11,11 @@ const Board = () => {
 
   useEffect(() => {
     const fetchPosts = () => {
-      const newPosts = Array.from({ length: 100 }, (_, index) => ({
-        id: index + 1,
-        title: `게시글 ${index + 1}`,
-        content: `이것은 게시글 ${index + 1}의 내용입니다.`
-      }));
+        const newPosts = Array.from({ length: 100 }, (_, index) => ({
+            id: index + 1,
+            title: `게시글 ${index + 1}`,
+            content: `이것은 게시글 ${index + 1}의 내용입니다.`
+          })).reverse(); 
       setPosts(newPosts);
     };
 
@@ -30,10 +32,12 @@ const Board = () => {
     <div className="board-container">
       <div className="header">게시판</div>
       {currentPosts.map(post => (
-        <div key={post.id} className="post">
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
-        </div>
+        <Link to={`/post/${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+          <div className="post">
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
+          </div>
+        </Link>
       ))}
       <Pagination
         postsPerPage={postsPerPage}
@@ -43,6 +47,7 @@ const Board = () => {
     </div>
   );
 };
+
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -65,3 +70,5 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 };
 
 export default Board;
+
+
