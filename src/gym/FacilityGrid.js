@@ -33,8 +33,9 @@ const FacilityGrid = () => {
 
   const handlePageClick = (newPage) => {
     setCurrentPage(newPage);
+    window.scrollTo(0, 0); // 페이지 상단으로 스크롤
   };
-
+  
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 1; i <= pageCount; i++) {

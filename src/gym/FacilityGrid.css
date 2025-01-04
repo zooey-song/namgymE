@@ -3,14 +3,17 @@
   grid-template-columns: repeat(4, 1fr); /* 4개의 칼럼, 각각 비슷한 크기로 */
   gap: 10px; /* 카드 사이의 간격 */
   padding: 20px; /* 그리드 주변의 패딩 */
+  margin-left: 40px; /* 그리드 왼쪽에 공간 */
+  margin-right: 40px; /* 그리드 오른쪽에 공간 */
 }
 
 .pagination {
-  width: 100%; /* 페이지네이션 너비를 그리드 너비에 맞춤 */
+  width: 100%; /* 페이지네이션 너비를 전체로 설정 */
   display: flex;
   justify-content: center; /* 중앙 정렬 */
   align-items: center; /* 수직 중앙 정렬 */
   margin-top: 20px; /* 페이지네이션과 카드 사이의 여백 */
+  margin-bottom: 40px; /* 페이지네이션 아래에 추가 공간 */
 }
 
 .pagination button {
