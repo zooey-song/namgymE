@@ -41,7 +41,7 @@ const Header = () => {
         </a>
         <div className="nav">
           <a href="/">검색하기</a>
-          <a href="#">커뮤니티</a>
+          <a href="/Board">커뮤니티</a>
         </div>
       </div>
     </div>
