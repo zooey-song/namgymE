@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./FacilityCard.css"; // 스타일 시트
 
 const FacilityCard = ({ rsrcNm, addr, daddr, fee, imgFileUrlAddr, instUrlAddr }) => {
@@ -14,7 +15,7 @@ const FacilityCard = ({ rsrcNm, addr, daddr, fee, imgFileUrlAddr, instUrlAddr })
         <p className="fee">이용 요금: {fee || "정보 없음"}</p>
       </div>
       <div className="card-footer">
-        <a href={instUrlAddr || "#"} target="_blank" rel="noopener noreferrer" className="details-button">상세보기</a>
+        <Link to={`/facility/${rsrcNm || ""}`} className="details-button">상세보기</Link>
       </div>
     </div>
   );
