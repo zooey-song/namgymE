@@ -7,6 +7,9 @@ import LoginForm from "./login/login";
 import Register from "./new_person/Register";
 import Detail from "./gym/FacilityDetail";
 import Board from "./community/Board";
+import DetailBoard from "./community/DetailBoard"
+import FacilityInfo from "./gym/FacilityInfo";
+
 
 const App = () => {
   return (
@@ -21,6 +24,8 @@ const App = () => {
           <Route path="/Register" element={<Register />} />
           <Route path="/Detail" element={<Detail />} />
           <Route path="/Board" element={<Board />} />
+          <Route path="/post/:id" element={<DetailBoard />} />
+          <Route path="/FacilityInfo/:id" element={<FacilityInfo />} />
           {/* 다른 경로는 필요에 따라 추가 */}
         </Routes>
       </div>
