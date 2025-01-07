@@ -8,17 +8,21 @@ const itemsPerPage = 12;
 const FacilityGrid = () => {
   const [facilities, setFacilities] = useState([]);
   const [error, setError] = useState(null);
-  const [pageCount, setPageCount] = useState(10); // 총 120개 데이터와 12 페이지 고정
+  //const [pageCount, setPageCount] = useState(10); // 총 120개 데이터와 12 페이지 고정
+  const pageCount = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchData = async (selectedPage) => {
     try {
-      const response = await axios.post('https://www.eshare.go.kr/eshare-openapi/rsrc/list/010500/7cc4668b0bae3d6b940801a6eca5e616', {
+      const response = await axios.post('http://10.125.121.224:8080/api/resources', {
         pageNo: selectedPage,
-        numOfRows: itemsPerPage
+        numOfRows: itemsPerPage,
+        sido:"부산",
+        gumgu:"해운대구"
       });
-      if (response.data && response.data.data) {
-        setFacilities(response.data.data);
+      //console.log(response);
+      if (response.data.content) {
+        setFacilities(response.data.content);
       } else {
         throw new Error('Data is not in expected format');
       }
